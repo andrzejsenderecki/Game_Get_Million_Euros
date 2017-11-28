@@ -1,6 +1,6 @@
 # game-get-1-million-euros-object-oriented-programming-version
 
-I decided to change my game GET 1 MILLION EUROS on object-oriented-programming version. The game will has own same features as first version, such as:
+I decided to change my game GET 1 MILLION EUROS on object-oriented-programming version. The game will has same features as first version, such as:
 
 "The game draw questions with 3 categories and display on the buttons 4 an answers.
 
