@@ -166,17 +166,21 @@ class Lifebuoy():
         lifebuoy5050Value = 0
         lifebuoyPhoneValue = 0
         lifebuoyAudienceValue = 0
+        print('Do you want use the lifebouy?')
         while lifebuoy5050Value == 0 or lifebuoyPhoneValue == 0 or lifebuoyAudienceValue == 0:
-            print('Do you want use the lifebouy?')
             useLifebuoy = input()
-            if useLifebuoy == '1':
+            if useLifebuoy == '1' and lifebuoy5050Value == 0:
+                lifebuoy5050Value += 1
                 lifebuoyAll.lifebuoy5050()
-            if useLifebuoy == '2':
+            elif useLifebuoy == '2' and lifebuoyPhoneValue == 0:
+                lifebuoyPhoneValue += 1
                 lifebuoyAll.lifebuoyPhone()
-            if useLifebuoy == '3':
+            elif useLifebuoy == '3' and lifebuoyAudienceValue == 0:
+                lifebuoyAudienceValue += 1
                 lifebuoyAll.lifebuoyAudience()
             else:
-                print('Odpowiedz na pytanie.')
+                print('You not have this lifebuoy')
+        print('You answer on question.')
 
     def lifebuoy5050():
         global lifebuoy5050Value
@@ -221,8 +225,6 @@ class Lifebuoy():
             exitListFinal5050 = [goodAnswer5050,randomListFinal5050]
             exitPrint5050 = random.shuffle(exitListFinal5050)
             print(exitListFinal5050)
-
-        lifebuoy5050Value += 1
 
     def lifebuoyPhone():
         global lifebuoyPhoneValue
@@ -288,10 +290,7 @@ class Lifebuoy():
                 listFullQuestionHard = questRandomHard
                 listLifebuoyPhone = [listFullQuestionHard[1], listFullQuestionHard[2], listFullQuestionHard[3], listFullQuestionHard[4], listFullQuestionHard[5]]
                 goodAnswer = [listFullQuestionHard[5]]
-            goodAnswer = [listFullQuestion[5]]
             print('Your friend is certainly that good answer is: ' + str(goodAnswer))
-
-        lifebuoyPhoneValue += 0
 
     def lifebuoyAudience():
         global lifebuoyAudienceValue
@@ -363,7 +362,6 @@ printList.createListQuestionHard()
 
 printList.questionRandomEasy()
 print('You write good answer: a, b, c or d')
-print('Do you want use lifebuoy?')
 lifebuoyAll.chooseLifebuoy()
 answerPlayer = input()
 checkAnswer.checkPlayerAnswer()
@@ -371,35 +369,30 @@ printList.RemoveQuestionEasy()
 
 printList.questionRandomEasy()
 print('You write good answer: a, b, c or d')
-print('Do you want use lifebuoy?')
 answerPlayer = input()
 checkAnswer.checkPlayerAnswer()
 printList.RemoveQuestionEasy()
 
 printList.questionRandomMedium()
 print('You write good answer: a, b, c or d')
-print('Do you want use lifebuoy?')
 answerPlayer = input()
 checkAnswer.checkPlayerAnswer()
 printList.RemoveQuestionMedium()
 
 printList.questionRandomMedium()
 print('You write good answer: a, b, c or d')
-print('Do you want use lifebuoy?')
 answerPlayer = input()
 checkAnswer.checkPlayerAnswer()
 printList.RemoveQuestionMedium()
 
 printList.questionRandomHard()
 print('You write good answer: a, b, c or d')
-print('Do you want use lifebuoy?')
 answerPlayer = input()
 checkAnswer.checkPlayerAnswer()
 printList.RemoveQuestionHard()
 
 printList.questionRandomHard()
 print('You write good answer: a, b, c or d')
-print('Do you want use lifebuoy?')
 answerPlayer = input()
 checkAnswer.checkPlayerAnswer()
 printList.RemoveQuestionHard()
