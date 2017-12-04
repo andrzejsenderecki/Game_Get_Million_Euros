@@ -1,4 +1,11 @@
-import random, sys
+import random, sys, tkinter
+from tkinter import messagebox
+
+gui = tkinter.Tk()
+
+gui.geometry('910x450')
+
+gui.title('GET 1 MILLION EUROS!')
 
 class QuestionEasy:
     def __init__(self,quest,answerA,answerB,answerC,answerD,answerGood):
@@ -21,75 +28,57 @@ class QuestionHard(QuestionEasy):
 class RandomQuestion:
     def createListQuestionEasy():
         global listQuestRandomEasy
-        listQuestRandomEasy = [questionEasy1.fullQuestion, questionEasy2.fullQuestion, questionEasy3.fullQuestion]
+        listQuestRandomEasy = [questionEasy1.fullQuestion, questionEasy2.fullQuestion, questionEasy3.fullQuestion, questionEasy4.fullQuestion]
 
     def createListQuestionMedium():
         global listQuestRandomMedium
-        listQuestRandomMedium = [questionMedium1.fullQuestion, questionMedium2.fullQuestion, questionMedium3.fullQuestion]
+        listQuestRandomMedium = [questionMedium1.fullQuestion, questionMedium2.fullQuestion, questionMedium3.fullQuestion, questionMedium4.fullQuestion]
 
     def createListQuestionHard():
         global listQuestRandomHard
-        listQuestRandomHard = [questionHard1.fullQuestion, questionHard2.fullQuestion, questionHard3.fullQuestion]
+        listQuestRandomHard = [questionHard1.fullQuestion, questionHard2.fullQuestion, questionHard3.fullQuestion, questionHard4.fullQuestion]
 
     def questionRandomEasy():
         global questRandomEasy
         questRandomEasy = random.choice(listQuestRandomEasy)
-        print(questRandomEasy[0])
-        print(questRandomEasy[1])
-        print(questRandomEasy[2])
-        print(questRandomEasy[3])
-        print(questRandomEasy[4])
 
     def questionRandomMedium():
         global questRandomMedium
         questRandomMedium = random.choice(listQuestRandomMedium)
-        print(questRandomMedium[0])
-        print(questRandomMedium[1])
-        print(questRandomMedium[2])
-        print(questRandomMedium[3])
-        print(questRandomMedium[4])
 
     def questionRandomHard():
         global questRandomHard
         questRandomHard = random.choice(listQuestRandomHard)
-        print(questRandomHard[0])
-        print(questRandomHard[1])
-        print(questRandomHard[2])
-        print(questRandomHard[3])
-        print(questRandomHard[4])
 
     def RemoveQuestionEasy():
         if questRandomEasy == questionEasy1.fullQuestion:
             listQuestRandomEasy.remove(questionEasy1.fullQuestion)
-            print(listQuestRandomEasy)
         elif questRandomEasy == questionEasy2.fullQuestion:
             listQuestRandomEasy.remove(questionEasy2.fullQuestion)
-            print(listQuestRandomEasy)
         elif questRandomEasy == questionEasy3.fullQuestion:
             listQuestRandomEasy.remove(questionEasy3.fullQuestion)
-            print(listQuestRandomEasy)
+        elif questRandomEasy == questionEasy4.fullQuestion:
+            listQuestRandomEasy.remove(questionEasy4.fullQuestion)
 
     def RemoveQuestionMedium():
         if questRandomMedium == questionMedium1.fullQuestion:
             listQuestRandomMedium.remove(questionMedium1.fullQuestion)
-            print(listQuestRandomMedium)
         elif questRandomMedium == questionMedium2.fullQuestion:
             listQuestRandomMedium.remove(questionMedium2.fullQuestion)
-            print(listQuestRandomMedium)
         elif questRandomMedium == questionMedium3.fullQuestion:
             listQuestRandomMedium.remove(questionMedium3.fullQuestion)
-            print(listQuestRandomMedium)
+        elif questRandomMedium == questionMedium4.fullQuestion:
+            listQuestRandomMedium.remove(questionMedium4.fullQuestion)
 
     def RemoveQuestionHard():
         if questRandomHard == questionHard1.fullQuestion:
             listQuestRandomHard.remove(questionHard1.fullQuestion)
-            print(listQuestRandomHard)
         elif questRandomHard == questionHard2.fullQuestion:
             listQuestRandomHard.remove(questionHard2.fullQuestion)
-            print(listQuestRandomHard)
         elif questRandomHard == questionHard3.fullQuestion:
             listQuestRandomHard.remove(questionHard3.fullQuestion)
-            print(listQuestRandomHard)
+        elif questRandomHard == questionHard4.fullQuestion:
+            listQuestRandomHard.remove(questionHard4.fullQuestion)
 
 class CheckAnswer:
     def createVaribleScoreandCash():
@@ -98,39 +87,49 @@ class CheckAnswer:
         global guaranteedCash
         score = 0
         cash = 0
-        guaranteedCash = 0
+        guaranteedcash = 0
 
     def checkPlayerAnswer():
         global score
         global cash
         global guaranteedCash
         guaranteedcash = 0
-        if answerPlayer == questRandomEasy[5]:
-            print('Good answer!')
-            score += 1
-            startScore = CheckAnswer
-            startScore.score()
-            nextQuest = NextQuestion
-            nextQuest.doYouWantToPlayNext()
-        elif answerPlayer != questRandomEasy[5]:
-            print('Bad answer! Game Over! You win ' + str(guaranteedcash))
-            sys.exit()
-        elif answerPlayer == questRandomMedium[5]:
-            print('Good answer!')
-            score += 1
-            startScore = CheckAnswer
-            startScore.score()
-        elif answerPlayer != questRandomEasy[5]:
-            print('Bad answer! Game Over! You win ' + str(guaranteedcash))
-            sys.exit()
-        elif answerPlayer == questRandomHard[5]:
-            print('Good answer!')
-            score += 1
-            startScore = CheckAnswer
-            startScore.score()
-        elif answerPlayer != questRandomEasy[5]:
-            print('Bad answer! Game Over! You win ' + str(guaranteedcash))
-            sys.exit()
+        if score <= 3:
+            if answerPlayer == questRandomEasy[5]:
+                print('Good answer!')
+                score += 1
+                startScore = CheckAnswer
+                startScore.score()
+                printList.RemoveQuestionEasy()
+                nextQuest = NextQuestion
+                nextQuest.doYouWantToPlayNext()
+            elif answerPlayer != questRandomEasy[5]:
+                print('Bad answer! Game Over! You win ' + str(guaranteedcash))
+                sys.exit()
+        elif score > 3 and score < 8:
+            if answerPlayer == questRandomMedium[5]:
+                print('Good answer!')
+                score += 1
+                startScore = CheckAnswer
+                startScore.score()
+                printList.RemoveQuestionMedium()
+                nextQuest = NextQuestion
+                nextQuest.doYouWantToPlayNext()
+            elif answerPlayer != questRandomEasy[5]:
+                print('Bad answer! Game Over! You win ' + str(guaranteedcash))
+                sys.exit()
+        elif score > 8:
+            if answerPlayer == questRandomHard[5]:
+                print('Good answer!')
+                score += 1
+                startScore = CheckAnswer
+                startScore.score()
+                printList.RemoveQuestionHard()
+                nextQuest = NextQuestion
+                nextQuest.doYouWantToPlayNext()
+            elif answerPlayer != questRandomEasy[5]:
+                print('Bad answer! Game Over! You win ' + str(guaranteedcash))
+                sys.exit()
 
     def score():
         global cash
@@ -138,24 +137,91 @@ class CheckAnswer:
         if score == 1:
             cash = 500
             guaranteedcash = 0
-            print('You have 500 Euros!')
             print(cash)
             print(guaranteedcash)
         elif score == 2:
             cash = 1000
             guaranteedcash = 1000
-            print('You Have 1000 Euros!')
+            print(cash)
+            print(guaranteedcash)
+        elif score == 3:
+            cash = 2000
+            guaranteedcash = 1000
+            print(cash)
+            print(guaranteedcash)
+        elif score == 4:
+            cash = 5000
+            guaranteedcash = 1000
+            print(cash)
+            print(guaranteedcash)
+        elif score == 5:
+            cash = 10000
+            guaranteedcash = 1000
+            print(cash)
+            print(guaranteedcash)
+        elif score == 6:
+            cash = 20000
+            guaranteedcash = 1000
+            print(cash)
+            print(guaranteedcash)
+        elif score == 7:
+            cash = 40000
+            guaranteedcash = 40000
+            print(cash)
+            print(guaranteedcash)
+        elif score == 8:
+            cash = 75000
+            guaranteedcash = 40000
+            print(cash)
+            print(guaranteedcash)
+        elif score == 9:
+            cash = 125000
+            guaranteedcash = 40000
+            print(cash)
+            print(guaranteedcash)
+        elif score == 10:
+            cash = 250000
+            guaranteedcash = 40000
+            print(cash)
+            print(guaranteedcash)
+        elif score == 11:
+            cash = 500000
+            guaranteedcash = 40000
+            print(cash)
+            print(guaranteedcash)
+        elif score == 12:
+            cash = 1000000
+            guaranteedcash = 100000000
             print(cash)
             print(guaranteedcash)
 
 class NextQuestion:
     def doYouWantToPlayNext():
-        print('Do you want to play next? You current win is: ' + str(cash) + ' euro!')
-        playerNextQuestion = input()
-        if playerNextQuestion == 't':
-            print('Good decision! You are play next!')
-        if playerNextQuestion == 'n':
-            print('Thak you! You win: ' + str(cash) + ' euro!')
+        game_end = messagebox.askyesno(title='Good Answer!', message='Good answer! Do you want to play next? You current win is: ' + str(cash) + ' euro!')
+        gui_label_current_cash.config(text='You current win: ' + str(cash) + ' euro')
+        if game_end == 1 and score == 0 or score == 1 or score == 2 or score == 3:
+            printList.questionRandomEasy()
+            gui_label.config(text=questRandomEasy[0])
+            gui_button_a.config(text=questRandomEasy[1])
+            gui_button_b.config(text=questRandomEasy[2])
+            gui_button_c.config(text=questRandomEasy[3])
+            gui_button_d.config(text=questRandomEasy[4])
+        elif game_end == 1 and score == 4 or score == 5 or score == 6 or score == 7:
+            printList.questionRandomMedium()
+            gui_label.config(text=questRandomMedium[0])
+            gui_button_a.config(text=questRandomMedium[1])
+            gui_button_b.config(text=questRandomMedium[2])
+            gui_button_c.config(text=questRandomMedium[3])
+            gui_button_d.config(text=questRandomMedium[4])
+        elif game_end == 1 and score == 8 or score == 9 or score == 10 or score == 11:
+            printList.questionRandomHard()
+            gui_label.config(text=questRandomHard[0])
+            gui_button_a.config(text=questRandomHard[1])
+            gui_button_b.config(text=questRandomHard[2])
+            gui_button_c.config(text=questRandomHard[3])
+            gui_button_d.config(text=questRandomHard[4])
+        elif game_end == 0:
+            game_end_yes = messagebox._show(title='Thank you!', message='Thank you! You win: ' + str(cash) + ' euro!')
             sys.exit()
 
 class Lifebuoy():
@@ -340,59 +406,74 @@ class Lifebuoy():
 
         lifebuoyAudienceValue += 1
 
-questionEasy1 = QuestionEasy('What city is the capital of England?', 'a - London', 'b - Moscow', 'c - Prague', 'd - Paris', 'a - London')
-questionEasy2 = QuestionEasy('What was the name of the Greek goddess of love?', 'a - Athena', 'b - Aphrodite', 'c - Euterpe', 'd - Hecate', 'b - Aphrodite')
-questionEasy3 = QuestionEasy('Where will the Mundial 2018?', 'a - Germany', 'b - France', 'c - Russia', 'd - England', 'c - Russia')
+class ClickButton:
+    def clickA():
+        global answerPlayer
+        answerPlayer = 'a'
+        checkAnswer.checkPlayerAnswer()
 
-questionMedium1 = QuestionMedium('Where is Albania?', 'a - Europe', 'b - Asia', 'c - Africa', 'd - South America', 'a - Europe')
-questionMedium2 = QuestionMedium('The light on the North Pole?', 'a - Rainbow', 'b - Aurora borealis', 'c - Glow', 'd - Mirage', 'b - Aurora borealis')
-questionMedium3 = QuestionMedium('What is the name of the power unit', 'a - Decibel', 'b - Volt', 'c - Watt', 'd - Boron', 'c - Watt')
+    def clickB():
+        global answerPlayer
+        answerPlayer = 'b'
+        checkAnswer.checkPlayerAnswer()
 
-questionHard1 = QuestionHard('Wchich Superhero drew Bob Kane?', 'a - Batman', 'b - Spiderman', 'c - Captain America', 'd - Superman', 'a - Batman')
-questionHard2 = QuestionHard('How years ago sank The Titanic?', 'a - 1911', 'b - 1912', 'c - 1913', 'd - 1914', 'b - 1912')
-questionHard3 = QuestionHard('What animal is particulary treat in China?', 'a - Tiger', 'b - Elephant', 'c - Panda', 'd - Bear', 'c - Panda')
+    def clickC():
+        global answerPlayer
+        answerPlayer = 'c'
+        checkAnswer.checkPlayerAnswer()
+
+    def clickD():
+        global answerPlayer
+        answerPlayer = 'd'
+        checkAnswer.checkPlayerAnswer()
+
+questionEasy1 = QuestionEasy('What city is the capital of England?', 'a - London', 'b - Moscow', 'c - Prague', 'd - Paris', 'a')
+questionEasy2 = QuestionEasy('What was the name of the Greek goddess of love?', 'a - Athena', 'b - Aphrodite', 'c - Euterpe', 'd - Hecate', 'b')
+questionEasy3 = QuestionEasy('Where will the Mundial 2018?', 'a - Germany', 'b - France', 'c - Russia', 'd - England', 'c')
+questionEasy4 = QuestionEasy('Which the sience is called queen every siences?', 'a - Biology', 'b - History', 'c - Physics', 'd - Maths', 'd')
+
+questionMedium1 = QuestionMedium('Where is Albania?', 'a - Europe', 'b - Asia', 'c - Africa', 'd - South America', 'a')
+questionMedium2 = QuestionMedium('The light on the North Pole?', 'a - Rainbow', 'b - Aurora borealis', 'c - Glow', 'd - Mirage', 'b')
+questionMedium3 = QuestionMedium('What is the name of the power unit', 'a - Decibel', 'b - Volt', 'c - Watt', 'd - Boron', 'c')
+questionMedium4 = QuestionMedium('What is the name the famous car with Italy?', 'a - BMW', 'b - Mercedes', 'c - Maseratti', 'd - Ferrari', 'd')
+
+questionHard1 = QuestionHard('Wchich Superhero drew Bob Kane?', 'a - Batman', 'b - Spiderman', 'c - Captain America', 'd - Superman', 'a')
+questionHard2 = QuestionHard('How years ago sank The Titanic?', 'a - 1911', 'b - 1912', 'c - 1913', 'd - 1914', 'b')
+questionHard3 = QuestionHard('What animal is particulary treat in China?', 'a - Tiger', 'b - Elephant', 'c - Panda', 'd - Bear', 'c')
+questionHard4 = QuestionHard('Which place on list the tallest peaks is peak Broad Peak?', 'a - First', 'b - Second', '3 - Fifth', 'd - Twelfth', 'd')
 
 lifebuoyAll = Lifebuoy
 printList = RandomQuestion
 checkAnswer = CheckAnswer
+clickButtons = ClickButton
 checkAnswer.createVaribleScoreandCash()
 printList.createListQuestionEasy()
 printList.createListQuestionMedium()
 printList.createListQuestionHard()
 
 printList.questionRandomEasy()
-print('You write good answer: a, b, c or d')
-lifebuoyAll.chooseLifebuoy()
-answerPlayer = input()
-checkAnswer.checkPlayerAnswer()
-printList.RemoveQuestionEasy()
 
-printList.questionRandomEasy()
-print('You write good answer: a, b, c or d')
-answerPlayer = input()
-checkAnswer.checkPlayerAnswer()
-printList.RemoveQuestionEasy()
+gui_label_current_cash = tkinter.Label(gui, text='GET 1 MILLION EUROS!')
+gui_label_current_cash.place(y=10, x=390)
 
-printList.questionRandomMedium()
-print('You write good answer: a, b, c or d')
-answerPlayer = input()
-checkAnswer.checkPlayerAnswer()
-printList.RemoveQuestionMedium()
+gui_label_current_cash = tkinter.Label(gui, text='You current win is: ' + str(cash) + ' euro')
+gui_label_current_cash.place(y=60, x=160)
 
-printList.questionRandomMedium()
-print('You write good answer: a, b, c or d')
-answerPlayer = input()
-checkAnswer.checkPlayerAnswer()
-printList.RemoveQuestionMedium()
+gui_label_quest_number = tkinter.Label(gui, text='Question:')
+gui_label_quest_number.place(y=110, x=90)
+gui_label = tkinter.Label(gui, text=questRandomEasy[0])
+gui_label.place(y=130, x=90)
 
-printList.questionRandomHard()
-print('You write good answer: a, b, c or d')
-answerPlayer = input()
-checkAnswer.checkPlayerAnswer()
-printList.RemoveQuestionHard()
+gui_button_a = tkinter.Button(gui, text=questRandomEasy[1], command=clickButtons.clickA, height = 1, width = 50)
+gui_button_a.place(x=70, y=180)
 
-printList.questionRandomHard()
-print('You write good answer: a, b, c or d')
-answerPlayer = input()
-checkAnswer.checkPlayerAnswer()
-printList.RemoveQuestionHard()
+gui_button_b = tkinter.Button(gui, text=questRandomEasy[2], command=clickButtons.clickB, height = 1, width = 50)
+gui_button_b.place(x=470, y=180)
+
+gui_button_c = tkinter.Button(gui, text=questRandomEasy[3], command=clickButtons.clickC, height = 1, width = 50)
+gui_button_c.place(x=70, y=230)
+
+gui_button_d = tkinter.Button(gui, text=questRandomEasy[4], command=clickButtons.clickD, height = 1, width = 50)
+gui_button_d.place(x=470, y=230)
+
+gui.mainloop()
