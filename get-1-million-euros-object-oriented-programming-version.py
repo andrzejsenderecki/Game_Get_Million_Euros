@@ -225,31 +225,23 @@ class NextQuestion:
             sys.exit()
 
 class Lifebuoy():
-    def chooseLifebuoy():
-        global lifebuoy5050Value
-        global lifebuoyPhoneValue
-        global lifebuoyAudienceValue
-        lifebuoy5050Value = 0
-        lifebuoyPhoneValue = 0
-        lifebuoyAudienceValue = 0
-        print('Do you want use the lifebouy?')
-        while lifebuoy5050Value == 0 or lifebuoyPhoneValue == 0 or lifebuoyAudienceValue == 0:
-            useLifebuoy = input()
-            if useLifebuoy == '1' and lifebuoy5050Value == 0:
-                lifebuoy5050Value += 1
-                lifebuoyAll.lifebuoy5050()
-            elif useLifebuoy == '2' and lifebuoyPhoneValue == 0:
-                lifebuoyPhoneValue += 1
-                lifebuoyAll.lifebuoyPhone()
-            elif useLifebuoy == '3' and lifebuoyAudienceValue == 0:
-                lifebuoyAudienceValue += 1
-                lifebuoyAll.lifebuoyAudience()
-            else:
-                print('You not have this lifebuoy')
-        print('You answer on question.')
+    def lifebuoyCrateVarible():
+        global exitListFinal5050
+        global exitValueFinalPhone
+        global a
+        global b
+        global c
+        global d
+        exitListFinal5050 = 0
+        exitValueFinalPhone = 0
+        a = 0
+        b = 0
+        c = 0
+        d = 0
 
     def lifebuoy5050():
         global lifebuoy5050Value
+        global exitPrint5050
         if score <= 4:
             listFullQuestionEasy = questRandomEasy
             listLifebuoy5050 = [listFullQuestionEasy[1], listFullQuestionEasy[2], listFullQuestionEasy[3], listFullQuestionEasy[4], listFullQuestionEasy[5]]
@@ -260,37 +252,37 @@ class Lifebuoy():
             listFullQuestionHard = questRandomHard
             listLifebuoy5050 = [listFullQuestionHard[1], listFullQuestionHard[2], listFullQuestionHard[3], listFullQuestionHard[4], listFullQuestionHard[5]]
 
-        if listLifebuoy5050[0] == listLifebuoy5050[4]:
+        if listLifebuoy5050[4] == 'a':
             listFinal5050 = [listLifebuoy5050[1],listLifebuoy5050[2],listLifebuoy5050[3]]
-            goodAnswer5050 = [listLifebuoy5050[4]]
+            goodAnswer5050 = [listLifebuoy5050[0]]
             randomListFinal5050 = random.sample(listFinal5050, 1)
             exitListFinal5050 = [goodAnswer5050,randomListFinal5050]
             exitPrint5050 = random.shuffle(exitListFinal5050)
-            print(exitListFinal5050)
+            gui_label_circle_1.config(text='Lifebuoy 50/50:     One of these answers is good:    ' + str(exitListFinal5050))
 
-        elif listLifebuoy5050[1] == listLifebuoy5050[4]:
+        elif listLifebuoy5050[4] == 'b':
             listFinal5050 = [listLifebuoy5050[0],listLifebuoy5050[2],listLifebuoy5050[3]]
-            goodAnswer5050 = [listLifebuoy5050[4]]
+            goodAnswer5050 = [listLifebuoy5050[1]]
             randomListFinal5050 = random.sample(listFinal5050, 1)
             exitListFinal5050 = [goodAnswer5050,randomListFinal5050]
             exitPrint5050 = random.shuffle(exitListFinal5050)
-            print(exitListFinal5050)
+            gui_label_circle_1.config(text='Lifebuoy 50/50:     One of these answers is good:    ' + str(exitListFinal5050))
 
-        elif listLifebuoy5050[2] == listLifebuoy5050[4]:
+        elif listLifebuoy5050[4] == 'c':
             listFinal5050 = [listLifebuoy5050[0],listLifebuoy5050[1],listLifebuoy5050[3]]
-            goodAnswer5050 = [listLifebuoy5050[4]]
+            goodAnswer5050 = [listLifebuoy5050[2]]
             randomListFinal5050 = random.sample(listFinal5050, 1)
             exitListFinal5050 = [goodAnswer5050,randomListFinal5050]
             exitPrint5050 = random.shuffle(exitListFinal5050)
-            print(exitListFinal5050)
+            gui_label_circle_1.config(text = 'Lifebuoy 50/50:     One of these answers is good:    ' + str(exitListFinal5050))
 
-        elif listLifebuoy5050[3] == listLifebuoy5050[4]:
+        elif listLifebuoy5050[4] == 'd':
             listFinal5050 = [listLifebuoy5050[0],listLifebuoy5050[1],listLifebuoy5050[2]]
-            goodAnswer5050 = [listLifebuoy5050[4]]
+            goodAnswer5050 = [listLifebuoy5050[3]]
             randomListFinal5050 = random.sample(listFinal5050, 1)
             exitListFinal5050 = [goodAnswer5050,randomListFinal5050]
             exitPrint5050 = random.shuffle(exitListFinal5050)
-            print(exitListFinal5050)
+            gui_label_circle_1.config(text = 'Lifebuoy 50/50:     One of these answers is good:    ' + str(exitListFinal5050))
 
     def lifebuoyPhone():
         global lifebuoyPhoneValue
@@ -308,54 +300,108 @@ class Lifebuoy():
                 listFullQuestionHard = questRandomHard
                 listLifebuoyPhone = [listFullQuestionHard[1], listFullQuestionHard[2], listFullQuestionHard[3], listFullQuestionHard[4], listFullQuestionHard[5]]
 
-            if listLifebuoyPhone[0] == listLifebuoyPhone[4]:
+            if listLifebuoyPhone[4] == 'a':
                 listFinalPhone = [listLifebuoyPhone[1], listLifebuoyPhone[2], listLifebuoyPhone[3]]
-                goodAnswerPhone = [listLifebuoyPhone[4]]
+                goodAnswerPhone = [listLifebuoyPhone[0]]
                 randomListFinalPhone = random.sample(listFinalPhone, 1)
                 exitListFinalPhone = [goodAnswerPhone, randomListFinalPhone]
                 exitPrintPhone = random.shuffle(exitListFinalPhone)
+                exitValueFinalPhone = exitListFinalPhone
+                gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend thinks that one of these answers is good:     ' + str(exitValueFinalPhone))
                 print(exitListFinalPhone)
 
-            elif listLifebuoyPhone[1] == listLifebuoyPhone[4]:
+            elif listLifebuoyPhone[4] == 'b':
                 listFinalPhone = [listLifebuoyPhone[0], listLifebuoyPhone[2], listLifebuoyPhone[3]]
-                goodAnswerPhone = [listLifebuoyPhone[4]]
+                goodAnswerPhone = [listLifebuoyPhone[1]]
                 randomListFinalPhone = random.sample(listFinalPhone, 1)
                 exitListFinalPhone = [goodAnswerPhone, randomListFinalPhone]
                 exitPrintPhone = random.shuffle(exitListFinalPhone)
+                exitValueFinalPhone = exitListFinalPhone
+                gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend thinks that one of these answers is good:     ' + str(exitValueFinalPhone))
                 print(exitListFinalPhone)
 
-            elif listLifebuoyPhone[2] == listLifebuoyPhone[4]:
+            elif listLifebuoyPhone[4] == 'c':
                 listFinalPhone = [listLifebuoyPhone[0], listLifebuoyPhone[1], listLifebuoyPhone[3]]
-                goodAnswerPhone = [listLifebuoyPhone[4]]
+                goodAnswerPhone = [listLifebuoyPhone[2]]
                 randomListFinalPhone = random.sample(listFinalPhone, 1)
                 exitListFinalPhone = [goodAnswerPhone, randomListFinalPhone]
                 exitPrintPhone = random.shuffle(exitListFinalPhone)
+                exitValueFinalPhone = exitListFinalPhone
+                gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend thinks that one of these answers is good:     ' + str(exitValueFinalPhone))
                 print(exitListFinalPhone)
 
-            elif listLifebuoyPhone[3] == listLifebuoyPhone[4]:
+            elif listLifebuoyPhone[4] == 'd':
                 listFinalPhone = [listLifebuoyPhone[0], listLifebuoyPhone[1], listLifebuoyPhone[2]]
-                goodAnswerPhone = [listLifebuoyPhone[4]]
+                goodAnswerPhone = [listLifebuoyPhone[3]]
                 randomListFinalPhone = random.sample(listFinalPhone, 1)
                 exitListFinalPhone = [goodAnswerPhone, randomListFinalPhone]
                 exitPrintPhone = random.shuffle(exitListFinalPhone)
+                exitValueFinalPhone = exitListFinalPhone
+                gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend thinks that one of these answers is good:     ' + str(exitValueFinalPhone))
                 print(exitListFinalPhone)
 
         if phoneResultRandom == 2:
+            gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend do not to know good answer!')
             print('Your friend do not to know good answer!')
 
         if phoneResultRandom == 3:
             if score <= 4:
                 listFullQuestionEasy = questRandomEasy
                 listLifebuoyPhone = [listFullQuestionEasy[1], listFullQuestionEasy[2], listFullQuestionEasy[3], listFullQuestionEasy[4], listFullQuestionEasy[5]]
-                goodAnswer = [listFullQuestionEasy[5]]
+                if listLifebuoyPhone[4] == 'a':
+                    goodAnswer = [listFullQuestionEasy[1]]
+                    exitValueFinalPhone = goodAnswer
+                    gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend is certainly that good answer is:     ' + str(exitValueFinalPhone))
+                elif listLifebuoyPhone[4] == 'b':
+                    goodAnswer = [listFullQuestionEasy[2]]
+                    exitValueFinalPhone = goodAnswer
+                    gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend is certainly that good answer is:     ' + str(exitValueFinalPhone))
+                elif listLifebuoyPhone[4] == 'c':
+                    goodAnswer = [listFullQuestionEasy[3]]
+                    exitValueFinalPhone = goodAnswer
+                    gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend is certainly that good answer is:     ' + str(exitValueFinalPhone))
+                elif listLifebuoyPhone[4] == 'd':
+                    goodAnswer = [listFullQuestionEasy[4]]
+                    exitValueFinalPhone = goodAnswer
+                    gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend is certainly that good answer is:     ' + str(exitValueFinalPhone))
             elif score > 4 and score < 10:
                 listFullQuestionMedium = questRandomMedium
                 listLifebuoyPhone = [listFullQuestionMedium[1], listFullQuestionMedium[2], listFullQuestionMedium[3], listFullQuestionMedium[4], listFullQuestionMedium[5]]
-                goodAnswer = [listFullQuestionMedium[5]]
+                if listLifebuoyPhone[4] == 'a':
+                    goodAnswer = [listFullQuestionEasy[1]]
+                    exitValueFinalPhone = goodAnswer
+                    gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend is certainly that good answer is:     ' + str(exitValueFinalPhone))
+                elif listLifebuoyPhone[4] == 'b':
+                    goodAnswer = [listFullQuestionEasy[2]]
+                    exitValueFinalPhone = goodAnswer
+                    gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend is certainly that good answer is:     ' + str(exitValueFinalPhone))
+                elif listLifebuoyPhone[4] == 'c':
+                    goodAnswer = [listFullQuestionEasy[3]]
+                    exitValueFinalPhone = goodAnswer
+                    gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend is certainly that good answer is:     ' + str(exitValueFinalPhone))
+                elif listLifebuoyPhone[4] == 'd':
+                    goodAnswer = [listFullQuestionEasy[4]]
+                    exitValueFinalPhone = goodAnswer
+                    gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend is certainly that good answer is:     ' + str(exitValueFinalPhone))
             elif score > 10:
                 listFullQuestionHard = questRandomHard
                 listLifebuoyPhone = [listFullQuestionHard[1], listFullQuestionHard[2], listFullQuestionHard[3], listFullQuestionHard[4], listFullQuestionHard[5]]
-                goodAnswer = [listFullQuestionHard[5]]
+                if listLifebuoyPhone[4] == 'a':
+                    goodAnswer = [listFullQuestionEasy[1]]
+                    exitValueFinalPhone = goodAnswer
+                    gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend is certainly that good answer is:     ' + str(exitValueFinalPhone))
+                elif listLifebuoyPhone[4] == 'b':
+                    goodAnswer = [listFullQuestionEasy[2]]
+                    exitValueFinalPhone = goodAnswer
+                    gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend is certainly that good answer is:     ' + str(exitValueFinalPhone))
+                elif listLifebuoyPhone[4] == 'c':
+                    goodAnswer = [listFullQuestionEasy[3]]
+                    exitValueFinalPhone = goodAnswer
+                    gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend is certainly that good answer is:     ' + str(exitValueFinalPhone))
+                elif listLifebuoyPhone[4] == 'd':
+                    goodAnswer = [listFullQuestionEasy[4]]
+                    exitValueFinalPhone = goodAnswer
+                    gui_label_circle_2.config(text='Lifebuoy phone to friend:     Your friend is certainly that good answer is:     ' + str(exitValueFinalPhone))
             print('Your friend is certainly that good answer is: ' + str(goodAnswer))
 
     def lifebuoyAudience():
@@ -376,16 +422,16 @@ class Lifebuoy():
             listFullQuestionHard = questRandomHard
             listLifebuoyAudience = [listFullQuestionHard[1], listFullQuestionHard[2], listFullQuestionHard[3], listFullQuestionHard[4], listFullQuestionHard[5]]
 
-        if listLifebuoyAudience[0] == listLifebuoyAudience[4]:
+        if listLifebuoyAudience[4] == 'a':
             a += 30
             percent -= 30
-        if listLifebuoyAudience[1] == listLifebuoyAudience[4]:
+        if listLifebuoyAudience[4] == 'b':
             b += 30
             percent -= 30
-        if listLifebuoyAudience[2] == listLifebuoyAudience[4]:
+        if listLifebuoyAudience[4] == 'c':
             c += 30
             percent -= 30
-        if listLifebuoyAudience[3] == listLifebuoyAudience[4]:
+        if listLifebuoyAudience[4] == 'd':
             d += 30
             percent -= 30
         percentA = random.randint(0, percent)
@@ -403,8 +449,8 @@ class Lifebuoy():
         print('Odpowiedź b - ' + str(b) + '%')
         print('Odpowiedź c - ' + str(c) + '%')
         print('Odpowiedź d - ' + str(d) + '%')
-
-        lifebuoyAudienceValue += 1
+        gui_label_circle_3.config(text='Lifebuoy help of audience:     Result vote audience: ' + '    a - ' + str(a) + '%    ' + '    b - ' + str(b) + '%    ' '    c - ' + str(c) + '%    ' '    d - ' + str(d) + '%    ')
+        #lifebuoyAudienceValue += 1
 
 class ClickButton:
     def clickA():
@@ -443,9 +489,11 @@ questionHard3 = QuestionHard('What animal is particulary treat in China?', 'a - 
 questionHard4 = QuestionHard('Which place on list the tallest peaks is peak Broad Peak?', 'a - First', 'b - Second', '3 - Fifth', 'd - Twelfth', 'd')
 
 lifebuoyAll = Lifebuoy
+lifebuoyVarible = Lifebuoy
 printList = RandomQuestion
 checkAnswer = CheckAnswer
 clickButtons = ClickButton
+lifebuoyVarible.lifebuoyCrateVarible()
 checkAnswer.createVaribleScoreandCash()
 printList.createListQuestionEasy()
 printList.createListQuestionMedium()
@@ -475,5 +523,23 @@ gui_button_c.place(x=70, y=230)
 
 gui_button_d = tkinter.Button(gui, text=questRandomEasy[4], command=clickButtons.clickD, height = 1, width = 50)
 gui_button_d.place(x=470, y=230)
+
+gui_label_circle_1 = tkinter.Label(gui, text='Lifebuoy 50/50:')
+gui_label_circle_1.place(y=300, x=10)
+
+gui_label_circle_2 = tkinter.Label(gui, text='Lifebuoy phone to friend:')
+gui_label_circle_2.place(y=330, x=10)
+
+gui_label_circle_3 = tkinter.Label(gui, text='Lifebuoy help of audience:')
+gui_label_circle_3.place(y=360, x=10)
+
+gui_circle5050 = tkinter.Button(gui, text='Lifebuoy 50/50:', command=lifebuoyAll.lifebuoy5050, height = 1, width = 40)
+gui_circle5050.place(x=10, y=400)
+
+gui_circle_audience = tkinter.Button(gui, text='Lifebuoy phone to friend', command=lifebuoyAll.lifebuoyPhone, height = 1, width = 40)
+gui_circle_audience.place(x=310, y=400)
+
+gui_circle_phone = tkinter.Button(gui, text='Lifebuoy help of audience', command=lifebuoyAll.lifebuoyAudience, height = 1, width = 40)
+gui_circle_phone.place(x=610, y=400)
 
 gui.mainloop()
