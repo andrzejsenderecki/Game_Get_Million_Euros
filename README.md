@@ -8,6 +8,7 @@
 
 ![4](https://user-images.githubusercontent.com/33809996/36561660-b30ea6a4-1814-11e8-8ae4-699e590fd800.jpg)
 
+![5](https://user-images.githubusercontent.com/33809996/36561663-b58511a2-1814-11e8-86d0-984c6e20efd2.jpg)
 
 
 I decided to change my game GET 1 MILLION EUROS on object-oriented-programming version. The game will has same features as first version, such as:
