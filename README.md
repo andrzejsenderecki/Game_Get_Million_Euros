@@ -4,6 +4,8 @@
 
 ![2](https://user-images.githubusercontent.com/33809996/36561651-accf35c4-1814-11e8-9851-2c07a606dae6.jpg)
 
+![3](https://user-images.githubusercontent.com/33809996/36561654-b01781b4-1814-11e8-87fd-4675644c575d.jpg)
+
 I decided to change my game GET 1 MILLION EUROS on object-oriented-programming version. The game will has same features as first version, such as:
 
 "The game draw questions with 3 categories and display on the buttons 4 an answers.
