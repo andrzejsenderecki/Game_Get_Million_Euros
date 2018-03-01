@@ -39,5 +39,6 @@ If player answered good on 12 question then player win game!
 ![1](https://user-images.githubusercontent.com/33809996/36861658-d01c832c-1d84-11e8-93d8-f0122f4c86ad.jpg)
 ![2](https://user-images.githubusercontent.com/33809996/36861659-d03a3b74-1d84-11e8-853d-802997a31a6e.jpg)
 ![3](https://user-images.githubusercontent.com/33809996/36861660-d05e17c4-1d84-11e8-8f66-4667df652063.jpg)
+![4](https://user-images.githubusercontent.com/33809996/36861754-1f6c04c0-1d85-11e8-9815-b3d761aa4234.jpg)
 ![5](https://user-images.githubusercontent.com/33809996/36861661-d07c6dc8-1d84-11e8-9b96-41300acec1d1.jpg)
 ![6](https://user-images.githubusercontent.com/33809996/36861662-d099be6e-1d84-11e8-99b0-d55e0ca34eb0.jpg)
