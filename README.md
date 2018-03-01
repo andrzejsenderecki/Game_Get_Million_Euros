@@ -1,20 +1,8 @@
 # game-get-1-million-euros-object-oriented-programming-version
 
-![1](https://user-images.githubusercontent.com/33809996/36561646-a8c77c20-1814-11e8-8c32-b0db3b83fa52.jpg)
-
-![2](https://user-images.githubusercontent.com/33809996/36561651-accf35c4-1814-11e8-9851-2c07a606dae6.jpg)
-
-![3](https://user-images.githubusercontent.com/33809996/36561654-b01781b4-1814-11e8-87fd-4675644c575d.jpg)
-
-![4](https://user-images.githubusercontent.com/33809996/36561660-b30ea6a4-1814-11e8-8ae4-699e590fd800.jpg)
-
-![5](https://user-images.githubusercontent.com/33809996/36561663-b58511a2-1814-11e8-86d0-984c6e20efd2.jpg)
-
-![6](https://user-images.githubusercontent.com/33809996/36561672-b8a9b090-1814-11e8-9641-1cc88259e094.jpg)
-
 I decided to change my game GET 1 MILLION EUROS on object-oriented-programming version. The game will has same features as first version, such as:
 
-"The game draw questions with 3 categories and display on the buttons 4 an answers.
+The game draw questions with 3 categories and display on the buttons 4 an answers.
 
 The questions are display in randomly order and program draws 12 questions with 24 question pool. Questions are draw with 3 difficultly level:
 
@@ -46,4 +34,10 @@ label which display answer lifebuoy 50/50
 label which display answer lifebuoy help of audience
 label which display answer phone to friend
 3 buttons which permision turn on lifebuoys
-If player answered good on 12 question then player win game!"
+If player answered good on 12 question then player win game!
+
+![1](https://user-images.githubusercontent.com/33809996/36861658-d01c832c-1d84-11e8-93d8-f0122f4c86ad.jpg)
+![2](https://user-images.githubusercontent.com/33809996/36861659-d03a3b74-1d84-11e8-853d-802997a31a6e.jpg)
+![3](https://user-images.githubusercontent.com/33809996/36861660-d05e17c4-1d84-11e8-8f66-4667df652063.jpg)
+![5](https://user-images.githubusercontent.com/33809996/36861661-d07c6dc8-1d84-11e8-9b96-41300acec1d1.jpg)
+![6](https://user-images.githubusercontent.com/33809996/36861662-d099be6e-1d84-11e8-99b0-d55e0ca34eb0.jpg)
