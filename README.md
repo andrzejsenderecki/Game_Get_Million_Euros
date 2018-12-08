@@ -1,4 +1,4 @@
-# game-get-1-million-euros-oop-version
+<h2>Get Milion Euros</h2>
 
 I decided to change my game GET 1 MILLION EUROS on object-oriented-programming version. The game will has same features as first version, such as:
 
